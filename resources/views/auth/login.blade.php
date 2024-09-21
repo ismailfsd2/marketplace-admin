@@ -33,8 +33,6 @@
                     </form>
                 </div>
             </div>
-            <!-- end card body -->
         </div>
-        <!-- end card -->
     </div>
 @stop

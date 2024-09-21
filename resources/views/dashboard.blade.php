@@ -27,29 +27,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end col-->
                                     <div class="col-auto">
                                         <button type="button" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Add Product</button>
                                     </div>
-                                    <!--end col-->
                                     <div class="col-auto">
                                         <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
                                     </div>
-                                    <!--end col-->
                                 </div>
-                                <!--end row-->
                             </form>
                         </div>
                     </div>
-                    <!-- end card header -->
                 </div>
-                <!--end col-->
             </div>
-            <!--end row-->
 
             <div class="row">
                 <div class="col-xl-3 col-md-6">
-                    <!-- card -->
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -77,14 +69,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
 
                 <div class="col-xl-3 col-md-6">
-                    <!-- card -->
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -112,14 +100,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
 
                 <div class="col-xl-3 col-md-6">
-                    <!-- card -->
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -147,14 +131,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
 
                 <div class="col-xl-3 col-md-6">
-                    <!-- card -->
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -181,13 +161,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
             </div>
-            <!-- end row-->
 
             <div class="row">
                 <div class="col-xl-8">
@@ -209,7 +185,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- end card header -->
 
                         <div class="card-header p-0 border-0 bg-soft-light">
                             <div class="row g-0 text-center">
@@ -219,45 +194,36 @@
                                         <p class="text-muted mb-0">Orders</p>
                                     </div>
                                 </div>
-                                <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0">
                                         <h5 class="mb-1">$<span class="counter-value" data-target="22.89">0</span>k</h5>
                                         <p class="text-muted mb-0">Earnings</p>
                                     </div>
                                 </div>
-                                <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0">
                                         <h5 class="mb-1"><span class="counter-value" data-target="367">0</span></h5>
                                         <p class="text-muted mb-0">Refunds</p>
                                     </div>
                                 </div>
-                                <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0 border-end-0">
                                         <h5 class="mb-1 text-success"><span class="counter-value" data-target="18.92">0</span>%</h5>
                                         <p class="text-muted mb-0">Conversation Ratio</p>
                                     </div>
                                 </div>
-                                <!--end col-->
                             </div>
                         </div>
-                        <!-- end card header -->
 
                         <div class="card-body p-0 pb-2">
                             <div class="w-100">
                                 <div id="customer_impression_charts" data-colors='["--vz-primary", "--vz-success", "--vz-danger"]' class="apex-charts" dir="ltr"></div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
 
                 <div class="col-xl-4">
-                    <!-- card -->
                     <div class="card card-height-100">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">Sales by Locations</h4>
@@ -267,9 +233,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- end card header -->
-
-                        <!-- card body -->
                         <div class="card-body">
                             <div id="sales-by-locations" data-colors='["--vz-light", "--vz-success", "--vz-primary"]' style="height: 269px;" dir="ltr"></div>
 
@@ -290,11 +253,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card body -->
                     </div>
-                    <!-- end card -->
                 </div>
-                <!-- end col -->
             </div>
 
             <div class="row">
@@ -318,8 +278,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card header -->
-
                         <div class="card-body">
                             <div class="table-responsive table-card">
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
@@ -516,8 +474,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card header -->
-
                         <div class="card-body">
                             <div class="table-responsive table-card">
                                 <table class="table table-centered table-hover align-middle table-nowrap mb-0">
@@ -550,7 +506,6 @@
                                                 <h5 class="fs-14 mb-0">32%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
                                             </td>
                                         </tr>
-                                        <!-- end -->
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -577,7 +532,6 @@
                                                 <h5 class="fs-14 mb-0">79%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
                                             </td>
                                         </tr>
-                                        <!-- end -->
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -604,7 +558,6 @@
                                                 <h5 class="fs-14 mb-0">90%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
                                             </td>
                                         </tr>
-                                        <!-- end -->
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -631,7 +584,6 @@
                                                 <h5 class="fs-14 mb-0">40%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
                                             </td>
                                         </tr>
-                                        <!-- end -->
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -660,10 +612,8 @@
                                                 <h5 class="fs-14 mb-0">57%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
                                             </td>
                                         </tr>
-                                        <!-- end -->
                                     </tbody>
                                 </table>
-                                <!-- end table -->
                             </div>
 
                             <div class="align-items-center mt-4 pt-2 justify-content-between d-flex">
@@ -689,13 +639,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- .card-body-->
                     </div>
-                    <!-- .card-->
                 </div>
-                <!-- .col-->
             </div>
-            <!-- end row-->
 
             <div class="row">
                 <div class="col-xl-4">
@@ -715,16 +661,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card header -->
-
                         <div class="card-body">
                             <div id="store-visits-source" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' class="apex-charts" dir="ltr"></div>
                         </div>
                     </div>
-                    <!-- .card-->
                 </div>
-                <!-- .col-->
-
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -733,8 +674,6 @@
                                 <button type="button" class="btn btn-soft-info btn-sm"><i class="ri-file-list-3-line align-middle"></i> Generate Report</button>
                             </div>
                         </div>
-                        <!-- end card header -->
-
                         <div class="card-body">
                             <div class="table-responsive table-card">
                                 <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
@@ -774,7 +713,6 @@
                                                 <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
                                             </td>
                                         </tr>
-                                        <!-- end tr -->
                                         <tr>
                                             <td>
                                                 <a href="#" class="fw-medium link-primary">#VZ2111</a>
@@ -799,7 +737,6 @@
                                                 <h5 class="fs-14 fw-medium mb-0">4.5<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
                                             </td>
                                         </tr>
-                                        <!-- end tr -->
                                         <tr>
                                             <td>
                                                 <a href="#" class="fw-medium link-primary">#VZ2109</a>
@@ -824,7 +761,6 @@
                                                 <h5 class="fs-14 fw-medium mb-0">4.9<span class="text-muted fs-11 ms-1">(89 votes)</span></h5>
                                             </td>
                                         </tr>
-                                        <!-- end tr -->
                                         <tr>
                                             <td>
                                                 <a href="#" class="fw-medium link-primary">#VZ2108</a>
@@ -849,7 +785,6 @@
                                                 <h5 class="fs-14 fw-medium mb-0">4.3<span class="text-muted fs-11 ms-1">(47 votes)</span></h5>
                                             </td>
                                         </tr>
-                                        <!-- end tr -->
                                         <tr>
                                             <td>
                                                 <a href="#" class="fw-medium link-primary">#VZ2107</a>
@@ -874,23 +809,15 @@
                                                 <h5 class="fs-14 fw-medium mb-0">4.7<span class="text-muted fs-11 ms-1">(161 votes)</span></h5>
                                             </td>
                                         </tr>
-                                        <!-- end tr -->
                                     </tbody>
-                                    <!-- end tbody -->
                                 </table>
-                                <!-- end table -->
                             </div>
                         </div>
                     </div>
-                    <!-- .card-->
                 </div>
-                <!-- .col-->
             </div>
-            <!-- end row-->
         </div>
-        <!-- end .h-100-->
     </div>
-    <!-- end col -->
     <div class="col-auto layout-rightside-col">
         <div class="overlay"></div>
         <div class="layout-rightside">
@@ -1058,7 +985,6 @@
                     </div>
                     <div class="p-3">
                         <h6 class="text-muted mb-3 text-uppercase fw-semibold">Products Reviews</h6>
-                        <!-- Swiper -->
                         <div class="swiper vertical-swiper" style="height: 250px;">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -1215,8 +1141,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end row -->
-
                             <div class="row align-items-center g-2">
                                 <div class="col-auto">
                                     <div class="p-1">
@@ -1236,8 +1160,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end row -->
-
                             <div class="row align-items-center g-2">
                                 <div class="col-auto">
                                     <div class="p-1">
@@ -1257,8 +1179,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end row -->
-
                             <div class="row align-items-center g-2">
                                 <div class="col-auto">
                                     <div class="p-1">
@@ -1279,8 +1199,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end row -->
-
                             <div class="row align-items-center g-2">
                                 <div class="col-auto">
                                     <div class="p-1">
@@ -1300,7 +1218,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end row -->
                         </div>
                     </div>
 
@@ -1316,10 +1233,7 @@
                     </div>
                 </div>
             </div>
-            <!-- end card-->
         </div>
-        <!-- end .rightbar-->
     </div>
-    <!-- end col -->
 </div>
 @stop

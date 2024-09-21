@@ -20,12 +20,10 @@
                         <div class="text-center mt-4">
                             <button class="btn btn-success w-100" type="submit">Send Reset Link</button>
                         </div>
-                    </form><!-- end form -->
+                    </form>
                 </div>
             </div>
-            <!-- end card body -->
         </div>
-        <!-- end card -->
         <div class="mt-4 text-center">
             <p class="mb-0">Wait, I remember my password... <a href="{{ route('auth.login') }}" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
         </div>
