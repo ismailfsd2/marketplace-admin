@@ -58,13 +58,12 @@ return new class extends Migration
         });
         Schema::table('users_activities', function (Blueprint $table) {
             $table->foreign('module_id')->references('id')->on('modules');
-            $table->foreign('option_id')->references('id')->on('module_options');
+            $table->foreign('module_option_id')->references('id')->on('module_options');
             $table->foreign('user_id')->references('id')->on('users');
         });
-        Schema::table('users_permissions', function (Blueprint $table) {
+        Schema::table('permission_options', function (Blueprint $table) {
             $table->foreign('module_id')->references('id')->on('modules');
-            $table->foreign('options_id')->references('id')->on('module_options');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('module_option_id')->references('id')->on('module_options');
         });
     }
 
@@ -117,13 +116,12 @@ return new class extends Migration
         });
         Schema::table('users_activities', function (Blueprint $table) {
             $table->dropForeign(['module_id']);
-            $table->dropForeign(['option_id']);
+            $table->dropForeign(['module_option_id']);
             $table->dropForeign(['user_id']);
         });
-        Schema::table('users_permissions', function (Blueprint $table) {
+        Schema::table('permission_options', function (Blueprint $table) {
             $table->dropForeign(['module_id']);
-            $table->dropForeign(['options_id']);
-            $table->dropForeign(['user_id']);
+            $table->dropForeign(['module_option_id']);
         });
     }
 };

@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_permissions', function (Blueprint $table) {
+        Schema::create('permission_options', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->unsignedBigInteger('module_id');
-            $table->unsignedBigInteger('options_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('module_option_id');
             $table->timestamps();
             $table->bigInteger('status')->default(1);
 
             $table->primary('id');
-            $table->index(['module_id', 'options_id', 'user_id']);
+            $table->index(['module_id', 'module_option_id']);
             
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_permissions');
+        Schema::dropIfExists('permission_options');
     }
 };
