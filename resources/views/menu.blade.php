@@ -33,7 +33,17 @@
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+                <li class="menu-title">
+                    <i class="ri-dashboard-2-line"></i>
+                    <span data-key="t-hr">Human Resource</span>
+                </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('designations.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-designations">Designations</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSample" data-bs-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="sidebarSample">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-sample">Samaple</span>
@@ -45,7 +55,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

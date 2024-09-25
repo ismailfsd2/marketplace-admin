@@ -1,4 +1,5 @@
-@extends('layout') @section('body')
+@extends('layout')
+@section('body')
 <div class="row">
     <div class="col">
         <div class="h-100">
@@ -1236,4 +1237,11 @@
         </div>
     </div>
 </div>
+@stop
+@section('bottom')
+    <script src="{{ asset('') }}assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/jsvectormap/maps/world-merc.js"></script>
+    <script src="{{ asset('') }}assets/libs/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('') }}assets/js/pages/dashboard-ecommerce.init.js"></script>
 @stop
