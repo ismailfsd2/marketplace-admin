@@ -43,6 +43,16 @@
                         <span data-key="t-designations">Designations</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('departments.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-departments">Departments</span>
+                    </a>
+                </li>
+
+
+
+
                 <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSample" data-bs-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="sidebarSample">
