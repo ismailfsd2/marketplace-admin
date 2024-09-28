@@ -44,6 +44,7 @@ class EmployeesController extends InitController
         }
         $totalcount = $employeesquery->count();
         $employeesquery->select(Employees::raw('id, first_name, last_name, email, phone_number, designation_id, department_id, created_by, created_at, updated_at, status'));
+        $employeesquery->with(['department','designation','country','state','city']);
         $employeesquery->skip($start)->take($rowPerPage);
         $employeesquery->orderBy($columnName, $columnSortOrder);
         $rows = $employeesquery->get();
@@ -55,8 +56,8 @@ class EmployeesController extends InitController
             $temp['name'] = $row->first_name.' '.$row->last_name;
             $temp['email'] = $row->email;
             $temp['phone_number'] = $row->phone_number;
-            $temp['designation'] = $row->designation_id;
-            $temp['department'] = $row->department_id;
+            $temp['designation'] = $row->designation->name;
+            $temp['department'] = $row->department->name;
             $temp['created_at'] = $row->created_at->format('d-M-Y H:i');
             $temp['updated_at'] = $row->updated_at->format('d-M-Y H:i');
             if($row->status){
@@ -181,10 +182,9 @@ class EmployeesController extends InitController
     {
         $this->data['page_title'] = "Edit Employee";
         $response['status'] = false;
-        $employee = Employees::with(['department','designation','country','state','city'])->find($id);
+        $employee = Employees::with(['department','designation','country','state','city','user'])->find($id);
         if($employee){
             $this->data['employee'] = $employee;
-            $this->data['user'] = User::where('employee_id',$employee->id)->first();
             return view('employees.edit', $this->data);
         }
         else{

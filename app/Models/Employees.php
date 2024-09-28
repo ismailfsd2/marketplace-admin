@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Countries;
 use App\Models\States;
 use App\Models\Cities;
@@ -39,5 +40,10 @@ class Employees extends Model
     public function department()
     {
         return $this->hasOne(Departments::class,'id', 'department_id');
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class,'employee_id', 'id');
     }
 }

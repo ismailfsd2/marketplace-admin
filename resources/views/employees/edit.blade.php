@@ -133,7 +133,7 @@
                         </div>
                         <!--end tab-pane-->
                         <div class="tab-pane" id="changePassword" role="tabpanel">
-                            <form action="{{ route('employees.login_detail_update',['user_id'=>$user->id]) }}" method="post" id="employee-change-password-form">
+                            <form action="{{ route('employees.login_detail_update',['user_id'=>$employee->user->id]) }}" method="post" id="employee-change-password-form">
                                 @csrf
                                 <div class="row g-2">
                                     <div class="col-lg-4">
@@ -167,7 +167,7 @@
                                     <div class="col-md-12">
                                         <div>
                                             <div class="form-check form-switch form-switch-md mb-3" dir="ltr">
-                                                @if($user->status == 1)
+                                                @if($employee->user->status == 1)
                                                     <input type="checkbox" class="form-check-input" id="user-status" name="status" value="1" checked>
                                                 @else
                                                     <input type="checkbox" class="form-check-input" id="user-status" name="status" value="1">
