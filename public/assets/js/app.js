@@ -29,20 +29,20 @@
         function E(e) {
             document.getElementById("header-lang-img") &&
                 ("en" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/us.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/us.svg")
                     : "sp" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/spain.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/spain.svg")
                     : "gr" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/germany.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/germany.svg")
                     : "it" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/italy.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/italy.svg")
                     : "ru" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/russia.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/russia.svg")
                     : "ch" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/china.svg")
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/china.svg")
                     : "fr" == e
-                    ? (document.getElementById("header-lang-img").src = "public/assets/images/flags/french.svg")
-                    : "ar" == e && (document.getElementById("header-lang-img").src = "public/assets/images/flags/ae.svg"),
+                    ? (document.getElementById("header-lang-img").src = "/public/assets/images/flags/french.svg")
+                    : "ar" == e && (document.getElementById("header-lang-img").src = "/public/assets/images/flags/ae.svg"),
                 localStorage.setItem("language", e),
                 null == (y = localStorage.getItem("language")) && E(b),
                 (e = new XMLHttpRequest()).open("GET", "public/assets/lang/" + y + ".json"),
@@ -109,7 +109,7 @@
             !t ||
                 ("twocolumn" != e && "twocolumn" != t["data-layout"]) ||
                 (document.querySelector(".navbar-menu") && (document.querySelector(".navbar-menu").innerHTML = u),
-                ((o = document.createElement("ul")).innerHTML = '<a href="#" class="logo"><img src="public/assets/images/logo-sm.png" alt="" height="22"></a>'),
+                ((o = document.createElement("ul")).innerHTML = '<a href="#" class="logo"><img src="/public/assets/images/logo-sm.png" alt="" height="22"></a>'),
                 Array.from(document.getElementById("navbar-nav").querySelectorAll(".menu-link")).forEach(function (e) {
                     o.className = "twocolumn-iconview";
                     var t = document.createElement("li"),
@@ -726,7 +726,7 @@
                     : (e.querySelector(".view-all") && (e.querySelector(".view-all").style.display = "none"),
                       e.querySelector(".empty-notification-elem") ||
                           (e.innerHTML +=
-                              '<div class="empty-notification-elem">\t\t\t\t\t\t\t<div class="w-25 w-sm-50 pt-3 mx-auto">\t\t\t\t\t\t\t\t<img src="public/assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t<div class="text-center pb-5 mt-2">\t\t\t\t\t\t\t\t<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>\t\t\t\t\t\t\t</div>\t\t\t\t\t\t</div>'));
+                              '<div class="empty-notification-elem">\t\t\t\t\t\t\t<div class="w-25 w-sm-50 pt-3 mx-auto">\t\t\t\t\t\t\t\t<img src="/public/assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t<div class="text-center pb-5 mt-2">\t\t\t\t\t\t\t\t<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>\t\t\t\t\t\t\t</div>\t\t\t\t\t\t</div>'));
             });
         }
         function G() {

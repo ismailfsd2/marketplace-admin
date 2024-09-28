@@ -49,6 +49,12 @@
                         <span data-key="t-departments">Departments</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('employees.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-employees">Employees</span>
+                    </a>
+                </li>
 
 
 

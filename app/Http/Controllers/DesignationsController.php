@@ -176,7 +176,14 @@ class DesignationsController extends InitController
             $response['message'] = "Designation not found";
         }
         return response()->json($response);
-
-
     }
+
+    public function select(Request $request){
+        $items = Designations::select('id','name');
+        $items->where('name','like','%'.$request->q.'%');
+        $response['status'] = true;
+        $response['items'] = $items->get();
+        return response()->json($response);
+    }
+
 }

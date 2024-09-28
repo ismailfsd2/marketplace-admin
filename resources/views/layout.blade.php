@@ -12,6 +12,7 @@
     <link href="{{ asset('') }}assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{ asset('') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/custom-dev.css" rel="stylesheet" type="text/css" />
@@ -53,6 +54,8 @@
     <script src="{{ asset('') }}assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="{{ asset('') }}assets/js/plugins.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--select2 cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="{{ asset('') }}assets/js/app.js"></script>
     <script src="{{ asset('') }}assets/js/modal-init.js"></script>

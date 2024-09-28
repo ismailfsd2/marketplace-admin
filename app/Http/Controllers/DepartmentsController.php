@@ -176,7 +176,13 @@ class DepartmentsController extends InitController
             $response['message'] = "Department not found";
         }
         return response()->json($response);
+    }
 
-
+    public function select(Request $request){
+        $items = Departments::select('id','name');
+        $items->where('name','like','%'.$request->q.'%');
+        $response['status'] = true;
+        $response['items'] = $items->get();
+        return response()->json($response);
     }
 }
