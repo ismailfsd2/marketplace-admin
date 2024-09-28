@@ -212,8 +212,18 @@ $.ajaxSelect2 = function(selector, parent_selector = false, $default_value = fal
         });
     }
 }
-$.ajaxSelect2(".designations-select");
-$.ajaxSelect2(".departments-select");
-$.ajaxSelect2(".countries-select");
-$.ajaxSelect2(".states-select", ".countries-select");
-$.ajaxSelect2(".cities-select", ".states-select");
+if ($(".designations-select").length > 0) {
+    $.ajaxSelect2(".designations-select");
+}
+if ($(".departments-select").length > 0) {
+    $.ajaxSelect2(".departments-select");
+}
+if ($(".countries-select").length > 0) {
+    $.ajaxSelect2(".countries-select");
+}
+if ($(".states-select").length > 0) {
+    $.ajaxSelect2(".states-select", ".countries-select");
+}
+if ($(".cities-select").length > 0) {
+    $.ajaxSelect2(".cities-select", ".states-select");
+}

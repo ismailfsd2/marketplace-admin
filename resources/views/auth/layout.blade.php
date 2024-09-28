@@ -67,6 +67,8 @@
     <script src="{{ asset('') }}assets/libs/particles.js/particles.js"></script>
     <script src="{{ asset('') }}assets/js/pages/particles.app.js"></script>
     <script src="{{ asset('') }}assets/js/pages/password-addon.init.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('') }}assets/js/ajax-requests.js"></script>
     @yield('footer')
 </body>
 </html>
