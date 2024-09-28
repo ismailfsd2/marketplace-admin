@@ -39,6 +39,7 @@ class DepartmentsController extends InitController
         }
         $totalcount = $departmentsquery->count();
         $departmentsquery->select(Departments::raw('id, name, created_by, created_at, updated_at, status'));
+        $departmentsquery->with(['created_user']);
         $departmentsquery->skip($start)->take($rowPerPage);
         $departmentsquery->orderBy($columnName, $columnSortOrder);
         $rows = $departmentsquery->get();
@@ -48,7 +49,7 @@ class DepartmentsController extends InitController
         foreach($rows as $row){
             $temp['id'] = $row->id;
             $temp['name'] = $row->name;
-            $temp['created_by'] = $row->created_by;
+            $temp['created_by'] = $row->created_user->name;
             $temp['created_at'] = $row->created_at->format('d-M-Y H:i');
             $temp['updated_at'] = $row->updated_at->format('d-M-Y H:i');
             if($row->status){

@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Countries;
 use App\Models\States;
 use App\Models\Cities;
 use App\Models\Designations;
 use App\Models\Departments;
-
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Employees extends Model
 {
@@ -45,5 +43,10 @@ class Employees extends Model
     public function user()
     {
         return $this->hasOne(User::class,'employee_id', 'id');
+    }
+
+    public function created_user()
+    {
+        return $this->hasOne(User::class,'id', 'created_by');
     }
 }

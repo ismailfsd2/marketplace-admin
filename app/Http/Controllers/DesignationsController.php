@@ -39,6 +39,7 @@ class DesignationsController extends InitController
         }
         $totalcount = $designationsquery->count();
         $designationsquery->select(Designations::raw('id, name, created_by, created_at, updated_at, status'));
+        $designationsquery->with(['created_user']);
         $designationsquery->skip($start)->take($rowPerPage);
         $designationsquery->orderBy($columnName, $columnSortOrder);
         $rows = $designationsquery->get();
@@ -48,7 +49,7 @@ class DesignationsController extends InitController
         foreach($rows as $row){
             $temp['id'] = $row->id;
             $temp['name'] = $row->name;
-            $temp['created_by'] = $row->created_by;
+            $temp['created_by'] = $row->created_user->name;
             $temp['created_at'] = $row->created_at->format('d-M-Y H:i');
             $temp['updated_at'] = $row->updated_at->format('d-M-Y H:i');
             if($row->status){
