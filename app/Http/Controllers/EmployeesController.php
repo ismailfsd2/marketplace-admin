@@ -3,14 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
-use App\Models\Designations;
-use App\Models\Departments;
-use App\Models\Employees;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Countries;
-use App\Models\States;
-use App\Models\Cities;
+use App\Models\Employees;
 
 class EmployeesController extends InitController
 {
@@ -154,11 +149,11 @@ class EmployeesController extends InitController
             $user->own_data_visible = 0;
         }
         if($request->create_login_detail == 1){
-            $user->password = Crypt::encryptString($request->password);
+            $user->password = Hash::make($request->password);
             $user->status = 1;
         }
         else{
-            $user->password = Crypt::encryptString('000000');
+            $user->password = Hash::make('000000');
             $user->status = 0;
         }
 
@@ -186,7 +181,7 @@ class EmployeesController extends InitController
     {
         $this->data['page_title'] = "Edit Employee";
         $response['status'] = false;
-        $employee = Employees::find($id);
+        $employee = Employees::with(['department','designation','country','state','city'])->find($id);
         if($employee){
             $this->data['employee'] = $employee;
             $this->data['user'] = User::where('employee_id',$employee->id)->first();
@@ -200,23 +195,123 @@ class EmployeesController extends InitController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $employee_id, string $user_id)
     {
-        $validated = $request->validate([
-            'name' => 'required|unique:employees,name,' . $id . '|max:255'
-        ]);
+        $valiate_option['first_name'] = "required|max:255";
+        $valiate_option['last_name'] = "required|max:255";
+        $valiate_option['phone_number'] = "required|max:255";
+        $valiate_option['email'] = "required|email|unique:users,email,".$user_id."|max:255";
+        $valiate_option['designation'] = "required|max:255";
+        $valiate_option['department'] = "required|max:255";
+        $valiate_option['country'] = "required|max:255";
+        $valiate_option['state'] = "required|max:255";
+        $valiate_option['city'] = "required|max:255";
+        $valiate_option['postal_code'] = "required|max:255";
+        $valiate_option['address'] = "required|max:255";
+        $validated = $request->validate($valiate_option);
 
-        $employee = Employees::find($id);
+        $employee = Employees::find($employee_id);
         if($employee){
-            $employee->name = $request->name;
-            $employee->detail = $request->detail;
+            $employee->first_name = $request->first_name;
+            $employee->last_name = $request->last_name;
+            $employee->designation_id = $request->designation;
+            $employee->department_id = $request->department;
+            $employee->phone_number = $request->phone_number;
+            $employee->email = $request->email;
+            $employee->country_id = $request->country;
+            $employee->state_id = $request->state;
+            $employee->city_id = $request->city;
+            $employee->postal_code = $request->postal_code;
+            $employee->address = $request->address;
+            $employee->created_by  = 1;
+            $employee->status = 1;
             $employee->save();
+    
+            $user = User::find($user_id);
+            $user->name = $request->first_name.' '.$request->last_name;
+            $user->phone_number = $request->phone_number;
+            $user->email = $request->email;
+            $user->save();
+    
             $response['status'] = true;
+            $response['redirect'] = route('employees.list');
             $response['message'] = "Employees updated";
         }
         else{
             $response['status'] = false;
-            $response['message'] = "Employees not found";
+            $response['message'] = "Invalid Employee";
+        }
+        return response()->json($response);
+
+    }
+
+    public function login_detail_update(Request $request, string $user_id){
+        $user = User::find($user_id);
+        if($user){
+            if($request->new_password != ""){
+                $valiate_option['current_password'] = "required";
+                $valiate_option['new_password'] = "min:6|required_with:new_password_confirm|same:new_password_confirm";
+                $valiate_option['new_password_confirm'] = "min:6";
+                $validated = $request->validate($valiate_option);
+                if (Hash::check($request->current_password, $user->password)) {
+                    $user->password = Hash::make($request->new_password);
+                }
+                else{
+                    $response['status'] = false;
+                    $response['message'] = "Enter wrong current password";
+                    return response()->json($response);
+                }
+            }
+            if($request->own_data_visible == 1){
+                $user->own_data_visible = 1;
+            }
+            else{
+                $user->own_data_visible = 0;
+            }
+            if($request->status == 1){
+                $user->status = 1;
+            }
+            else{
+                $user->status = 0;
+            }
+            $user->save();
+            $response['status'] = true;
+            $response['message'] = "Login Detail Update";
+        }
+        else{
+            $response['status'] = false;
+            $response['message'] = "Invalid Employee";
+        }
+        return response()->json($response);
+    }
+
+    public function change_profile(Request $request, $employee_id){
+        $response['status'] = false;
+        $response['message'] = 'Something Wrong!';
+        $employee = Employees::find($employee_id);
+        if($employee){
+            if ($request->hasFile('profile_image')) {
+                $timestamp = time();
+                $db_path = "images/".date('Y')."/".date('m')."/".date('d')."/";
+                $saveDir = "public/uploads/".$db_path;
+                $fileName = $timestamp.".jpg";
+                $savePath = $saveDir . $fileName;
+                if (!is_dir($saveDir)) {
+                    mkdir($saveDir, 0755, true);
+                }
+                $file = $request->file('profile_image');
+                $file->move($saveDir, $fileName);
+    
+                $employee->picture = "uploads/".$db_path . $fileName;
+                $employee->save();
+    
+                $response['status'] = true;
+                $response['message'] = 'Employee Profile Update';
+                $response['profile_url'] = asset("uploads/".$db_path . $fileName);
+            }
+        }
+        else{
+            $response['message'] = 'Invalid Employee';
         }
         return response()->json($response);
     }

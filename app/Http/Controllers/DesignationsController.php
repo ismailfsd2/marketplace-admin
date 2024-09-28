@@ -180,7 +180,12 @@ class DesignationsController extends InitController
 
     public function select(Request $request){
         $items = Designations::select('id','name');
-        $items->where('name','like','%'.$request->q.'%');
+        if($request->default_value){
+            $items->where('id',$request->default_value);
+        }
+        else{
+            $items->where('name','like','%'.$request->q.'%');
+        }
         $response['status'] = true;
         $response['items'] = $items->get();
         return response()->json($response);

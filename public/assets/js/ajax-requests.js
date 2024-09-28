@@ -67,6 +67,7 @@ $.ajaxForm = function (selector, method = 'POST') {
                 }
                 else{
                     $.alertShow(res.message,'danger');
+                    $(selector).find('button[type="submit"]').removeAttr('disabled').html('Submit');
                 }
             },
             error: function(jqXHR, textStatus){
@@ -153,8 +154,12 @@ $.alertShow = function(message, type = "primary"){
     Toastify(option).showToast();
 }
 
-$.ajaxSelect2 = function(selector, parent_selector = false){
+$.ajaxSelect2 = function(selector, parent_selector = false, $default_value = false){
     var url  = $(selector).data('url');
+    var parent = false;
+    if(parent_selector){
+        parent = $(parent_selector).val();
+    }
     $(selector).select2({
         allowClear: false,
         ajax: {
@@ -164,7 +169,7 @@ $.ajaxSelect2 = function(selector, parent_selector = false){
             data: function (params) {
                 return {
                     q: params.term,
-                    parent:$(parent_selector).val(),
+                    parent:parent,
                     _token: $('meta[name="csrf-token"]').attr('content')
                 };
             },
@@ -186,9 +191,26 @@ $.ajaxSelect2 = function(selector, parent_selector = false){
                 }
             },
             cache: true 
-        },
-        minimumInputLength: 2
+        }
     });
+    if($(selector).data('default_value')){
+        $.ajax({
+            url: url,
+            type: 'json',
+            method: 'GET',
+            data: {
+                default_value: $(selector).data('default_value'),
+                parent:parent,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                if (data.status) {
+                    var defaultOption = new Option(data.items[0].name, data.items[0].id, true, true);
+                    $(selector).append(defaultOption).trigger('change');
+                }
+            }
+        });
+    }
 }
 $.ajaxSelect2(".designations-select");
 $.ajaxSelect2(".departments-select");

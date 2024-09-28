@@ -9,9 +9,14 @@ class StatesController extends InitController
 {
     public function select(Request $request){
         $items = States::select('id','name');
-        $items->where('name','like','%'.$request->q.'%');
-        if($request->parent){
-            $items->where('country_id',$request->parent);
+        if($request->default_value){
+            $items->where('id',$request->default_value);
+        }
+        else{
+            $items->where('name','like','%'.$request->q.'%');
+            if($request->parent){
+                $items->where('country_id',$request->parent);
+            }
         }
         $response['status'] = true;
         $response['items'] = $items->get();

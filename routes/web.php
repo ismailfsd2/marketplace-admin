@@ -76,9 +76,11 @@ Route::group(['prefix'=>'employees','as' => 'employees.'],function () {
     Route::post('/add', [EmployeesController::class, 'store']);
     
     Route::get('/edit/{id}', [EmployeesController::class, 'edit'])->name('edit');
-    Route::post('/edit/{id}', [EmployeesController::class, 'update']);
+    Route::post('/edit/{employee_id}/{user_id}', [EmployeesController::class, 'update'])->name('udpate');
+    Route::post('/login_detail_update/{user_id}', [EmployeesController::class, 'login_detail_update'])->name('login_detail_update');
+    Route::post('/change_profile/{employee_id}', [EmployeesController::class, 'change_profile'])->name('change_profile');
     
-    Route::get('/delete/{id}', [EmployeesController::class, 'destroy'])->name('delete');
+    Route::get('/delete/{employee_id}', [EmployeesController::class, 'destroy'])->name('delete');
 
 });
 
