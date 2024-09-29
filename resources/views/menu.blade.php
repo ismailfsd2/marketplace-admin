@@ -55,6 +55,17 @@
                         <span data-key="t-employees">Employees</span>
                     </a>
                 </li>
+                <li class="menu-title">
+                    <i class="ri-dashboard-2-line"></i>
+                    <span data-key="t-hr">Inventory Managment</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('taxes.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-taxes">Taxes</span>
+                    </a>
+                </li>
+
 
 
 

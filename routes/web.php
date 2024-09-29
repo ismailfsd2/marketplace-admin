@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\CountriesController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\TaxesController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -95,6 +96,24 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::get('/delete/{employee_id}', [EmployeesController::class, 'destroy'])->name('delete');
     
     });
+
+    // Taxes
+    Route::group(['prefix'=>'taxes','as' => 'taxes.'],function () {
+        Route::get('/', [TaxesController::class, 'index'])->name('list');
+        Route::post('/', [TaxesController::class, 'data']);
+    
+        Route::get('/select', [TaxesController::class, 'select'])->name('select');
+    
+        Route::get('/add', [TaxesController::class, 'create'])->name('add');
+        Route::post('/add', [TaxesController::class, 'store']);
+        
+        Route::get('/edit/{id}', [TaxesController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [TaxesController::class, 'update']);
+        
+        Route::get('/delete/{id}', [TaxesController::class, 'destroy'])->name('delete');
+    
+    });
+
 });
 
 
