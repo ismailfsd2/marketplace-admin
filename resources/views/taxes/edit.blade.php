@@ -39,6 +39,15 @@
                         <textarea name="detail" id="tax-detail" class="form-control" height="100">{{ $tax->detail }}</textarea>
                     </div>
                 </div>
+                <div class="col-xxl-12">
+                    <div>
+                        <label for="tax-status" class="form-label">Status <span class="required">*</span></label>
+                        <select name="status" id="tax-status" class="form-control">
+                            <option value="1" @if($tax->status == 1) selected @endif >Active</option>
+                            <option value="0" @if($tax->status == 0) selected @endif >Deactive</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-lg-12">
                     <div class="hstack gap-2 justify-content-end">
                         <button type="button" class="btn btn-light modal-close" data-bs-dismiss="modal">Close</button>

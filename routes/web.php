@@ -14,6 +14,7 @@ use App\Http\Controllers\CountriesController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\TaxesController;
+use App\Http\Controllers\DiscountsController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -111,6 +112,23 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/edit/{id}', [TaxesController::class, 'update']);
         
         Route::get('/delete/{id}', [TaxesController::class, 'destroy'])->name('delete');
+    
+    });
+
+    // Discounts
+    Route::group(['prefix'=>'discounts','as' => 'discounts.'],function () {
+        Route::get('/', [DiscountsController::class, 'index'])->name('list');
+        Route::post('/', [DiscountsController::class, 'data']);
+    
+        Route::get('/select', [DiscountsController::class, 'select'])->name('select');
+    
+        Route::get('/add', [DiscountsController::class, 'create'])->name('add');
+        Route::post('/add', [DiscountsController::class, 'store']);
+        
+        Route::get('/edit/{id}', [DiscountsController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [DiscountsController::class, 'update']);
+        
+        Route::get('/delete/{id}', [DiscountsController::class, 'destroy'])->name('delete');
     
     });
 

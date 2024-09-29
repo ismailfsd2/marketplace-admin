@@ -65,6 +65,12 @@
                         <span data-key="t-taxes">Taxes</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('discounts.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-discounts">Discounts</span>
+                    </a>
+                </li>
 
 
 
