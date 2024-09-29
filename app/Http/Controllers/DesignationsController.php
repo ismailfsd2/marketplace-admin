@@ -103,7 +103,7 @@ class DesignationsController extends InitController
         $designation = new Designations;
         $designation->name = $request->name;
         $designation->details = $request->details;
-        $designation->created_by  = 1;
+        $designation->created_by  = $this->data['auth']->id;
         $designation->save();
         $response['status'] = true;
         $response['message'] = "New designation added";

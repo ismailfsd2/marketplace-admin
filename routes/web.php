@@ -18,11 +18,15 @@ Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
         Route::get('login', [AuthController::class, 'login'])->name('login');
         Route::post('login', [AuthController::class, 'auth_login']);
+
         Route::get('forget-password', [AuthController::class, 'forget_password'])->name('forget_password');
     });
 });
 
 Route::middleware([AuthMiddleware::class])->group(function () {
+
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [DashboardController::class, 'index']);
     

@@ -132,7 +132,7 @@ class EmployeesController extends InitController
         $employee->city_id = $request->city;
         $employee->postal_code = $request->postal_code;
         $employee->address = $request->address;
-        $employee->created_by  = 1;
+        $employee->created_by  = $this->data['auth']->id;
         $employee->status = 1;
         $employee->save();
 
@@ -142,7 +142,7 @@ class EmployeesController extends InitController
         $user->email = $request->email;
         $user->type = 'employee';
         $user->employee_id = $employee->id;
-        $user->created_by  = 1;
+        $user->created_by  = $this->data['auth']->id;
         if($request->own_data_visible == 1){
             $user->own_data_visible = 0;
         }
@@ -223,7 +223,7 @@ class EmployeesController extends InitController
             $employee->city_id = $request->city;
             $employee->postal_code = $request->postal_code;
             $employee->address = $request->address;
-            $employee->created_by  = 1;
+            $employee->created_by  = $this->data['auth']->id;
             $employee->status = 1;
             $employee->save();
     

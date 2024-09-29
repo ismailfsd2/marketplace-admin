@@ -103,7 +103,7 @@ class DepartmentsController extends InitController
         $department = new Departments;
         $department->name = $request->name;
         $department->detail = $request->detail;
-        $department->created_by  = 1;
+        $department->created_by  = $this->data['auth']->id;
         $department->save();
         $response['status'] = true;
         $response['message'] = "New department added";

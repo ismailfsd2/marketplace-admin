@@ -46,6 +46,11 @@ class AuthController extends InitController
         return response()->json($response);
     }
 
+    public function logout(){
+        Session::forget('mp_auth_login');
+        return redirect()->route('auth.login');
+    }
+
     public function forget_password()
     {
         $this->data['page_title'] = "Forget Password";
