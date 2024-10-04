@@ -71,6 +71,12 @@
                         <span data-key="t-discounts">Discounts</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('units.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-units">Units</span>
+                    </a>
+                </li>
 
 
 

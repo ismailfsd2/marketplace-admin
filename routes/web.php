@@ -15,6 +15,7 @@ use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\TaxesController;
 use App\Http\Controllers\DiscountsController;
+use App\Http\Controllers\UnitsController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -129,6 +130,23 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/edit/{id}', [DiscountsController::class, 'update']);
         
         Route::get('/delete/{id}', [DiscountsController::class, 'destroy'])->name('delete');
+    
+    });
+
+    // Units
+    Route::group(['prefix'=>'units','as' => 'units.'],function () {
+        Route::get('/', [UnitsController::class, 'index'])->name('list');
+        Route::post('/', [UnitsController::class, 'data']);
+    
+        Route::get('/select', [UnitsController::class, 'select'])->name('select');
+    
+        Route::get('/add', [UnitsController::class, 'create'])->name('add');
+        Route::post('/add', [UnitsController::class, 'store']);
+        
+        Route::get('/edit/{id}', [UnitsController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [UnitsController::class, 'update']);
+        
+        Route::get('/delete/{id}', [UnitsController::class, 'destroy'])->name('delete');
     
     });
 
