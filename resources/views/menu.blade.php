@@ -77,6 +77,12 @@
                         <span data-key="t-units">Units</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('brands.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-brands">Brands</span>
+                    </a>
+                </li>
 
 
 
