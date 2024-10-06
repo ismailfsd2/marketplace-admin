@@ -8,6 +8,11 @@ $.tableInit = function (selector, url, option = {}) {
         order: [[0, 'desc']],
         ajax: function (data, callback, settings) {
             data['_token'] = $('meta[name="csrf-token"]').attr('content');
+            if(option.data){
+                $.each(option.data, function(dkey, dvalue) {
+                    data[dkey] = dvalue;
+                });                
+            }
             // Abort the current request if it exists and is still ongoing
             if (currentRequest) {
                 currentRequest.abort();

@@ -83,6 +83,12 @@
                         <span data-key="t-brands">Brands</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('field_groups.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-field_groups">Field Groups</span>
+                    </a>
+                </li>
 
 
 

@@ -17,6 +17,8 @@ use App\Http\Controllers\TaxesController;
 use App\Http\Controllers\DiscountsController;
 use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\FieldGroupsController;
+use App\Http\Controllers\FieldsController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -166,6 +168,36 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         
         Route::get('/delete/{id}', [BrandsController::class, 'destroy'])->name('delete');
     
+    });
+    
+    // Field Groups
+    Route::group(['prefix'=>'field_groups','as' => 'field_groups.'],function () {
+        Route::get('/', [FieldGroupsController::class, 'index'])->name('list');
+        Route::post('/', [FieldGroupsController::class, 'data']);
+    
+        Route::get('/select', [FieldGroupsController::class, 'select'])->name('select');
+    
+        Route::get('/add', [FieldGroupsController::class, 'create'])->name('add');
+        Route::post('/add', [FieldGroupsController::class, 'store']);
+        
+        Route::get('/edit/{id}', [FieldGroupsController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [FieldGroupsController::class, 'update']);
+        
+        Route::get('/delete/{id}', [FieldGroupsController::class, 'destroy'])->name('delete');
+
+        Route::group(['prefix'=>'fields','as' => 'fields.'],function () {
+            Route::get('/{id}', [FieldsController::class, 'index'])->name('list');
+            Route::post('/{id}', [FieldsController::class, 'data']);
+
+            Route::get('/add/{id}', [FieldsController::class, 'create'])->name('add');
+            Route::post('/add/{id}', [FieldsController::class, 'store']);
+        
+            Route::get('/edit/{id}', [FieldsController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [FieldsController::class, 'update']);
+            
+            Route::get('/delete/{id}', [FieldsController::class, 'destroy'])->name('delete');
+    
+        });
     });
 
 });

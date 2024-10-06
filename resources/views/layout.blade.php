@@ -12,6 +12,11 @@
     <link href="{{ asset('') }}assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Choices -->
+    <link rel="stylesheet" href="{{ asset('') }}assets/libs/choices.js/public/assets/styles/choices.min.css" />
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="{{ asset('') }}assets/libs/flatpickr/flatpickr.min.css" />
+    <!-- Select 2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{ asset('') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
@@ -53,10 +58,14 @@
     <script src="{{ asset('') }}assets/libs/feather-icons/feather.min.js"></script>
     <script src="{{ asset('') }}assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="{{ asset('') }}assets/js/plugins.js"></script>
-    <!-- <script src="{{ asset('') }}assets/js/jquery-3.6.0.min.js"></script> -->
     <script src="{{ asset('') }}assets/js/jquery-3.5.1.min.js"></script>
+    <!-- Choices -->
+    <script src="{{ asset('') }}assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- Flatpickr -->
+    <script src="{{ asset('') }}assets/libs/flatpickr/flatpickr.min.js"></script>
     <!--select2 cdn-->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
     <script src="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="{{ asset('') }}assets/js/app.js"></script>
     <script src="{{ asset('') }}assets/js/modal-init.js"></script>
