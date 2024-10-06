@@ -89,6 +89,12 @@
                         <span data-key="t-field_groups">Field Groups</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('categories.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-categories">Categories</span>
+                    </a>
+                </li>
 
 
 

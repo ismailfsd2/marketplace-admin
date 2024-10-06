@@ -19,6 +19,7 @@ use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\FieldGroupsController;
 use App\Http\Controllers\FieldsController;
+use App\Http\Controllers\CategoriesController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -198,6 +199,23 @@ Route::middleware([AuthMiddleware::class])->group(function () {
             Route::get('/delete/{id}', [FieldsController::class, 'destroy'])->name('delete');
     
         });
+    });
+
+    // Categories
+    Route::group(['prefix'=>'categories','as' => 'categories.'],function () {
+        Route::get('/', [CategoriesController::class, 'index'])->name('list');
+        Route::post('/', [CategoriesController::class, 'data']);
+    
+        Route::get('/select', [CategoriesController::class, 'select'])->name('select');
+    
+        Route::get('/add', [CategoriesController::class, 'create'])->name('add');
+        Route::post('/add', [CategoriesController::class, 'store']);
+        
+        Route::get('/edit/{id}', [CategoriesController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [CategoriesController::class, 'update']);
+        
+        Route::get('/delete/{id}', [CategoriesController::class, 'destroy'])->name('delete');
+    
     });
 
 });

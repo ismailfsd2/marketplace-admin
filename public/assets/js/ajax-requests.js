@@ -154,11 +154,11 @@ $.alertShow = function(message, type = "primary"){
     Toastify(option).showToast();
 }
 
-$.ajaxSelect2 = function(selector, parent_selector = false, $default_value = false){
+$.ajaxSelect2 = function(selector, options = {}){
     var url  = $(selector).data('url');
     var parent = false;
-    if(parent_selector){
-        parent = $(parent_selector).val();
+    if(options.parent_selector){
+        parent = $(options.parent_selector).val();
     }
     $(selector).select2({
         allowClear: false,
@@ -175,13 +175,21 @@ $.ajaxSelect2 = function(selector, parent_selector = false, $default_value = fal
             },
             processResults: function (data) {
                 if(data.status){
+                    if(options.first_option){
+                        var results = [options.first_option];
+                    }
+                    else{
+                        var results = [];
+                    }
+                    // Map the data items and append them to the results array
+                    results = results.concat($.map(data.items, function (item) {
+                        return {
+                            id: item.id,
+                            text: item.name
+                        };
+                    }));
                     return {
-                        results: $.map(data.items, function (item) {
-                            return {
-                                id: item.id,
-                                text: item.name 
-                            }
-                        })
+                        results: results
                     };
                 }
                 else{

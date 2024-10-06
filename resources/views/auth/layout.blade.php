@@ -67,7 +67,7 @@
     <script src="{{ asset('') }}assets/libs/particles.js/particles.js"></script>
     <script src="{{ asset('') }}assets/js/pages/particles.app.js"></script>
     <script src="{{ asset('') }}assets/js/pages/password-addon.init.js"></script>
-    <!-- <script src="{{ asset('') }}assets/js/jquery-3.6.0.min.js"></script> -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
     <script src="{{ asset('') }}assets/js/jquery-3.5.1.min.js"></script>
     <script src="{{ asset('') }}assets/js/ajax-requests.js"></script>
     @yield('footer')

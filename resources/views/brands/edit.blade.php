@@ -1,6 +1,6 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="InitModalgridLabel">Edit Unit</h5>
+        <h5 class="modal-title" id="InitModalgridLabel">Edit Brand</h5>
     </div>
     <div class="modal-body">
         <form action="{{ route('brands.edit', $brand->id) }}" id="brand-edit-form" method="post">
