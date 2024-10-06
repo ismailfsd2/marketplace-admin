@@ -95,6 +95,16 @@
                         <span data-key="t-categories">Categories</span>
                     </a>
                 </li>
+                <li class="menu-title">
+                    <i class="ri-dashboard-2-line"></i>
+                    <span data-key="t-hr">General</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('currencies.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-currencies">Currencies</span>
+                    </a>
+                </li>
 
 
 

@@ -20,6 +20,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\FieldGroupsController;
 use App\Http\Controllers\FieldsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CurrenciesController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -215,6 +216,24 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/edit/{id}', [CategoriesController::class, 'update']);
         
         Route::get('/delete/{id}', [CategoriesController::class, 'destroy'])->name('delete');
+    
+    });
+
+
+    // Currencies
+    Route::group(['prefix'=>'currencies','as' => 'currencies.'],function () {
+        Route::get('/', [CurrenciesController::class, 'index'])->name('list');
+        Route::post('/', [CurrenciesController::class, 'data']);
+    
+        Route::get('/select', [CurrenciesController::class, 'select'])->name('select');
+    
+        Route::get('/add', [CurrenciesController::class, 'create'])->name('add');
+        Route::post('/add', [CurrenciesController::class, 'store']);
+        
+        Route::get('/edit/{id}', [CurrenciesController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [CurrenciesController::class, 'update']);
+        
+        Route::get('/delete/{id}', [CurrenciesController::class, 'destroy'])->name('delete');
     
     });
 
