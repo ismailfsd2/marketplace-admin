@@ -230,8 +230,8 @@ if ($(".countries-select").length > 0) {
     $.ajaxSelect2(".countries-select");
 }
 if ($(".states-select").length > 0) {
-    $.ajaxSelect2(".states-select", ".countries-select");
+    $.ajaxSelect2(".states-select", {parent_selector: ".countries-select"});
 }
 if ($(".cities-select").length > 0) {
-    $.ajaxSelect2(".cities-select", ".states-select");
+    $.ajaxSelect2(".cities-select", {parent_selector: ".states-select"});
 }

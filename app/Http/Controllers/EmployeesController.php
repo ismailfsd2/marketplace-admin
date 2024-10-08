@@ -136,33 +136,39 @@ class EmployeesController extends InitController
         $employee->status = 1;
         $employee->save();
 
-        $user = new User;
-        $user->name = $request->first_name.' '.$request->last_name;
-        $user->phone_number = $request->phone_number;
-        $user->email = $request->email;
-        $user->type = 'employee';
-        $user->employee_id = $employee->id;
-        $user->created_by  = $this->data['auth']->id;
-        if($request->own_data_visible == 1){
-            $user->own_data_visible = 0;
+        if($employee){
+            $user = new User;
+            $user->name = $request->first_name.' '.$request->last_name;
+            $user->phone_number = $request->phone_number;
+            $user->email = $request->email;
+            $user->type = 'employee';
+            $user->employee_id = $employee->id;
+            $user->created_by  = $this->data['auth']->id;
+            if($request->own_data_visible == 1){
+                $user->own_data_visible = 1;
+            }
+            else{
+                $user->own_data_visible = 0;
+            }
+            if($request->create_login_detail == 1){
+                $user->password = Hash::make($request->password);
+                $user->status = 1;
+            }
+            else{
+                $user->password = Hash::make('000000');
+                $user->status = 0;
+            }
+    
+            $user->save();
+    
+            $response['status'] = true;
+            $response['redirect'] = route('employees.list');
+            $response['message'] = "New employee added";
         }
         else{
-            $user->own_data_visible = 0;
+            $response['status'] = false;
+            $response['message'] = "New employee add failed";
         }
-        if($request->create_login_detail == 1){
-            $user->password = Hash::make($request->password);
-            $user->status = 1;
-        }
-        else{
-            $user->password = Hash::make('000000');
-            $user->status = 0;
-        }
-
-        $user->save();
-
-        $response['status'] = true;
-        $response['redirect'] = route('employees.list');
-        $response['message'] = "New employees added";
         return response()->json($response);
 
     }
@@ -280,7 +286,7 @@ class EmployeesController extends InitController
         }
         else{
             $response['status'] = false;
-            $response['message'] = "Invalid Employee";
+            $response['message'] = "Invalid User";
         }
         return response()->json($response);
     }

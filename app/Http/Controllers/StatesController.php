@@ -18,6 +18,7 @@ class StatesController extends InitController
                 $items->where('country_id',$request->parent);
             }
         }
+        $items->limit(10);
         $response['status'] = true;
         $response['items'] = $items->get();
         return response()->json($response);

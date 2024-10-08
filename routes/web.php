@@ -21,6 +21,7 @@ use App\Http\Controllers\FieldGroupsController;
 use App\Http\Controllers\FieldsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CurrenciesController;
+use App\Http\Controllers\SuppliersController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -219,7 +220,6 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     
     });
 
-
     // Currencies
     Route::group(['prefix'=>'currencies','as' => 'currencies.'],function () {
         Route::get('/', [CurrenciesController::class, 'index'])->name('list');
@@ -234,6 +234,27 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/edit/{id}', [CurrenciesController::class, 'update']);
         
         Route::get('/delete/{id}', [CurrenciesController::class, 'destroy'])->name('delete');
+    
+    });
+
+    // Suppliers
+    Route::group(['prefix'=>'suppliers','as' => 'suppliers.'],function () {
+
+        Route::get('/', [SuppliersController::class, 'index'])->name('list');
+        Route::post('/', [SuppliersController::class, 'data']);
+        
+        Route::get('/add', [SuppliersController::class, 'create'])->name('add');
+        Route::post('/add', [SuppliersController::class, 'store']);
+        
+        Route::get('/edit/{id}', [SuppliersController::class, 'edit'])->name('edit');
+        Route::post('/edit/{supplier_id}/{user_id}', [SuppliersController::class, 'update'])->name('udpate');
+
+        Route::post('/create_login_account/{supplier_id}', [SuppliersController::class, 'create_login_account'])->name('create_login_account');
+        Route::post('/login_detail_update/{user_id}', [SuppliersController::class, 'login_detail_update'])->name('login_detail_update');
+
+        Route::post('/change_profile/{supplier_id}', [SuppliersController::class, 'change_profile'])->name('change_profile');
+        
+        Route::get('/delete/{supplier_id}', [SuppliersController::class, 'destroy'])->name('delete');
     
     });
 

@@ -15,6 +15,7 @@ class CountriesController extends InitController
         else{
             $items->where('name','like','%'.$request->q.'%');
         }
+        $items->limit(10);
         $response['status'] = true;
         $response['items'] = $items->get();
         return response()->json($response);

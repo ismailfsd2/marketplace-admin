@@ -95,6 +95,12 @@
                         <span data-key="t-categories">Categories</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('suppliers.list')  }}">
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-suppliers">Suppliers</span>
+                    </a>
+                </li>
                 <li class="menu-title">
                     <i class="ri-dashboard-2-line"></i>
                     <span data-key="t-hr">General</span>

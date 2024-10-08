@@ -54,7 +54,7 @@
                 <div class="card-body p-4">
                     <div class="tab-content">
                         <div class="tab-pane active show" id="personalDetails" role="tabpanel">
-                            <form action="{{ route('employees.udpate',['employee_id'=>$employee->id,'user_id'=>1]) }}" method="post" id="employee-edit-form">
+                            <form action="{{ route('employees.udpate',['employee_id'=>$employee->id,'user_id'=>$employee->user->id]) }}" method="post" id="employee-edit-form">
                                 @csrf
                                 <div class="row gy-4">
                                     <div class="col-md-6">

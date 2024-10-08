@@ -15,9 +15,6 @@
                             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                         </div>
                         <div class="mb-3">
-                            <div class="float-end">
-                                <a href="{{ route('auth.forget_password') }}" class="text-muted">Forgot password?</a>
-                            </div>
                             <label class="form-label" for="password-input">Password</label>
                             <div class="position-relative auth-pass-inputgroup mb-3">
                                 <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" name="password">
@@ -26,6 +23,9 @@
                         </div>
                         <div class="mt-4">
                             <button class="btn btn-success w-100" type="submit">Sign In</button>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <a href="{{ route('auth.forget_password') }}" class="text-muted">Forgot password?</a>
                         </div>
                     </form>
                 </div>
