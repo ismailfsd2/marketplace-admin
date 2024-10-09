@@ -80,6 +80,7 @@ class SuppliersController extends InitController
                                         <i class="ri-more-fill align-middle"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item edit-item-btn supplier-edit" href="'.route('point_of_contacts.list',$row->id).'"><i class="ri-list-unordered align-bottom me-2 text-muted"></i> List POC</a></li>
                                         <li><a class="dropdown-item edit-item-btn supplier-edit" href="'.route('suppliers.edit',$row->id).'"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
                                         <li><a class="dropdown-item remove-item-btn supplier-delete" href="'.route('suppliers.delete',$row->id).'"><i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete</a></li>
                                     </ul>

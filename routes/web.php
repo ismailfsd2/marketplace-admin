@@ -22,6 +22,7 @@ use App\Http\Controllers\FieldsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CurrenciesController;
 use App\Http\Controllers\SuppliersController;
+use App\Http\Controllers\PointOfContactsController;
 
 Route::middleware([LoginAuthMiddleware::class])->group(function () {
     Route::group(['prefix'=>'/','as' => 'auth.'],function () {
@@ -255,6 +256,23 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/change_profile/{supplier_id}', [SuppliersController::class, 'change_profile'])->name('change_profile');
         
         Route::get('/delete/{supplier_id}', [SuppliersController::class, 'destroy'])->name('delete');
+    
+    });
+
+    // Point of Contacts
+    Route::group(['prefix'=>'point_of_contacts','as' => 'point_of_contacts.'],function () {
+        Route::get('/{supplier_id}', [PointOfContactsController::class, 'index'])->name('list');
+        Route::post('/{supplier_id}', [PointOfContactsController::class, 'data']);
+    
+        Route::get('/select/{supplier_id}', [PointOfContactsController::class, 'select'])->name('select');
+    
+        Route::get('/add/{supplier_id}', [PointOfContactsController::class, 'create'])->name('add');
+        Route::post('/add/{supplier_id}', [PointOfContactsController::class, 'store']);
+        
+        Route::get('/edit/{id}', [PointOfContactsController::class, 'edit'])->name('edit');
+        Route::post('/edit/{id}', [PointOfContactsController::class, 'update']);
+        
+        Route::get('/delete/{id}', [PointOfContactsController::class, 'destroy'])->name('delete');
     
     });
 
